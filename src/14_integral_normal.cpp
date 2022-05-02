@@ -11,4 +11,7 @@ int main()
     pcl::PointCloud<pcl::PointXYZ>::Ptr source_cloud(new pcl::PointCloud<pcl::PointXYZ>);
     pcl::io::loadPCDFile("../table.pcd", *source_cloud);
 
+
+
+
 }
