@@ -3,7 +3,7 @@
 #include <pcl/point_types.h>
 #include <pcl/visualization/pcl_visualizer.h>
 
-#include <pcl/filters/impl/bilateral.hpp>
+#include <pcl/filters/impl/bilateral.hpp> //利用强度进行滤波，所以点云类型是PointXYZI
 
 int main()
 {
@@ -16,7 +16,7 @@ int main()
     pcl::BilateralFilter<pcl::PointXYZI> bf_filter;
     bf_filter.setInputCloud(source_cloud);
     bf_filter.setSearchMethod(tree);
-    bf_filter.setStdDev(0.1);
+    bf_filter.setStdDev(0.1);   // 如果一个点的距离超过平均距离0.1个标准差以上则为离群点
     bf_filter.setHalfSize(0.1);
     bf_filter.filter(*filtered_cloud);
 

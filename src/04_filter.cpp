@@ -36,7 +36,7 @@ int main()
 /******************VoxelGrid******************/
     pcl::VoxelGrid<pcl::PointXYZ> vg_filter;
     vg_filter.setInputCloud(source_cloud);
-    vg_filter.setLeafSize(0.01, 0.01, 0.01);    // 设置体素大小
+    vg_filter.setLeafSize(0.01, 0.01, 0.01);    // 设置体素大小，单位：米
     vg_filter.filter(*filtered_cloud);
 
 /******************StatisticalOutlier******************/
@@ -49,7 +49,7 @@ int main()
 /******************RadiusOutlier******************/
     pcl::RadiusOutlierRemoval<pcl::PointXYZ> ror_filter;
     ror_filter.setInputCloud(source_cloud);
-    ror_filter.setRadiusSearch(0.5);        //设置搜索半径
+    ror_filter.setRadiusSearch(0.05);        //设置搜索半径，单位：米
     ror_filter.setMinNeighborsInRadius(20); //设置半径内最少点数，低于20就视为离群点
     ror_filter.filter(*filtered_cloud);
 

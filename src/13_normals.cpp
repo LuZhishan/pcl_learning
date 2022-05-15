@@ -16,7 +16,7 @@ int main()
     pcl::search::KdTree<pcl::PointXYZ>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZ>);
     ne.setSearchMethod(tree);
     pcl::PointCloud<pcl::Normal>::Ptr cloud_normals(new pcl::PointCloud<pcl::Normal>);
-    ne.setRadiusSearch(0.03);//单位：米，0.03即3厘米
+    ne.setRadiusSearch(0.03);   // 搜索半径，单位：米
     ne.compute(*cloud_normals);
 
 
