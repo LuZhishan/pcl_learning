@@ -15,12 +15,12 @@ int main()
     tf_1(0, 1) = -sin(M_PI_4);
     tf_1(1, 0) = sin(M_PI_4);
     tf_1(1, 1) = cos(M_PI_4);
-    tf_1(0, 3) = 2.5;//x方向移动2.5
+    tf_1(0, 3) = 2.5;//x方向移动2.5米
     std::cout << tf_1 << std::endl << std::endl;
 
 
     Eigen::Affine3f tf_2 = Eigen::Affine3f::Identity();
-    tf_2.translation() << 2.5, 0, 0; //x方向移动2.5
+    tf_2.translation() << 2.5, 0, 0; //x方向移动2.5米
     tf_2.rotate(Eigen::AngleAxisf(M_PI_4, Eigen::Vector3f::UnitZ()));//绕z轴旋转45°
     std::cout << tf_2.matrix() << std::endl << std::endl;
 

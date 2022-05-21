@@ -12,7 +12,7 @@ int main()
     pcl::PointCloud<pcl::PointXYZ>::Ptr source_cloud(new pcl::PointCloud<pcl::PointXYZ>);
     pcl::io::loadPCDFile("../table.pcd", *source_cloud);
 
-    pcl::PointCloud<pcl::Normal>::Ptr normals(new pcl::PointCloud<pcl::Normal>);
+    pcl::PointCloud<pcl::Normal>::Ptr cloud_normals(new pcl::PointCloud<pcl::Normal>);
     pcl::IntegralImageNormalEstimation<pcl::PointXYZ, pcl::Normal> ine;
     //三种法线估计方法
         // COVARIANCE_MATRIX
@@ -22,10 +22,10 @@ int main()
     ine.setMaxDepthChangeFactor(0.02f); // 计算对象边界的深度变化阈值
     ine.setNormalSmoothingSize(10.0f);  // 
     ine.setInputCloud(source_cloud);
-    ine.compute(*normals);
+    ine.compute(*cloud_normals);
 
     pcl::visualization::PCLVisualizer viewer("Title of Windows");
-    pcl::visualization::PointCloudColorHandlerCustom<pcl::Normal>  color_red(normals, 0, 0, 255);
-    viewer.addPointCloudNormals<pcl::PointXYZ, pcl::Normal>(source_cloud, normals);
+    pcl::visualization::PointCloudColorHandlerCustom<pcl::Normal>  color_red(cloud_normals, 0, 0, 255);
+    viewer.addPointCloudNormals<pcl::PointXYZ, pcl::Normal>(source_cloud, cloud_normals);
     viewer.spin();
 }
