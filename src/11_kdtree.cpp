@@ -26,9 +26,9 @@ int main()
     }
 
     //半径近邻
-    std::vector<int> rmin;
-    std::vector<float> rDistance;
-    float r = 1;
+    std::vector<int> rmin;          //距离最近的点集
+    std::vector<float> rDistance;   //上述点到目标点的距离（平方距离）
+    float r = 1;                    // 搜索半径
     if(tree.radiusSearch(p, r, rmin, rDistance) > 0)
     {
         for(int i = 0; i < rmin.size(); ++i)
