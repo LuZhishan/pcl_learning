@@ -1,0 +1,27 @@
+cmake_minimum_required(VERSION 3.5)
+project(pcl_learning)
+
+set(CMAKE_CXX_STANDARD 14)
+
+find_package(PCL 1.12 REQUIRED)
+include_directories(
+    ${PCL_INCLUDE_DIR}
+)
+# add_executable(01_io src/01_io.cpp)
+# target_link_libraries(01_io ${PCL_LIBRARIES})
+# add_executable(02_transform src/02_transform.cpp)
+# target_link_libraries(02_transform ${PCL_LIBRARIES})
+# add_executable(03_kdtree src/03_kdtree.cpp)
+# target_link_libraries(03_kdtree ${PCL_LIBRARIES})
+# add_executable(05_ransac src/05_ransac.cpp)
+# target_link_libraries(05_ransac ${PCL_LIBRARIES})
+# add_executable(06_passthrough src/06_passthrough.cpp)
+# target_link_libraries(06_passthrough ${PCL_LIBRARIES})
+add_executable(07_outlier src/07_outlier.cpp)
+target_link_libraries(07_outlier ${PCL_LIBRARIES})
+# add_executable(31_cluster src/31_cluster.cpp)
+# target_link_libraries(31_cluster ${PCL_LIBRARIES})
+# add_executable(test src/test.cpp)
+# target_link_libraries(test)
+# add_executable(101_pmf src/extra/101_pmf.cpp)
+# target_link_libraries(101_pmf ${PCL_LIBRARIES})
