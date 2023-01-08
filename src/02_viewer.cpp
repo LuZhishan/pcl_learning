@@ -22,11 +22,11 @@ int main(int argc, char **argv)
     pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ>  color_red(cloud, 0, 0, 255);
     viewer.addPointCloud(cloud, color_blue, "v1", v1);
     viewer.addPointCloud(cloud, color_red , "v2", v2);
-    // viewer.spin();
-    while (viewer.wasStopped())
-    {
-        viewer.spinOnce();
-    }
+    viewer.spin();
+    // while (viewer.wasStopped())
+    // {
+    //     viewer.spinOnce();
+    // }
 
     return (0);
 }

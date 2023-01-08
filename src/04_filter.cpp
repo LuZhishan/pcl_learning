@@ -22,7 +22,7 @@ int main()
     pt_filter.setInputCloud(source_cloud);
     pt_filter.setFilterFieldName("Z");          // 过滤Z轴方向的数据
     pt_filter.setFilterLimits(0.1, 1.9);        // 设置过滤范围
-    pt_filter.setFilterLimitsNegative(false);   // false代表保留过滤范围内的点， true表示去掉过滤范围内的点，如果不设置，默认flase
+    pt_filter.setNegative(false);               // false代表保留过滤范围内的点， true表示去掉过滤范围内的点，如果不设置，默认flase
     pt_filter.filter(*filtered_cloud);
 
 /******************CropBox******************/
