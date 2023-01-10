@@ -10,7 +10,7 @@ int main()
         std::cout << "No such pcd file" << std::endl;
         return -1;
     }
-    Eigen::Affine3d tf = Eigen::Affine3d::Identity();
+    Eigen::Affine3d tf = Eigen::Affine3d::Identity();// 位置在原点，方向指向x轴
     tf.translate(Eigen::Vector3d(2.5, 0, 0));
     // tf.translation() << 2.5, 0, 0; // 等同于上一行
     tf.rotate(Eigen::AngleAxisd(M_PI / 4, Eigen::Vector3d(0, 2, 3)));

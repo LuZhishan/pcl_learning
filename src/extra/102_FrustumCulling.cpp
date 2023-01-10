@@ -26,12 +26,11 @@ int main()
     fc.setNearPlaneDistance(200);   // 上顶面
     fc.setFarPlaneDistance(1000);   // 下底面
     Eigen::Affine3f cam_pose = Eigen::Affine3f::Identity();
-    cam_pose.translate(Eigen::Vector3f(512, 512, 512));
-    cam_pose.rotate(Eigen::AngleAxisf(0, Eigen::Vector3f::UnitZ()));
+    cam_pose.translate(Eigen::Vector3f(512, 0, 512));
+    cam_pose.rotate(Eigen::AngleAxisf(M_PI_2, Eigen::Vector3f::UnitZ()));
     fc.setCameraPose(cam_pose.matrix());
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_out(new pcl::PointCloud<pcl::PointXYZ>);
     fc.filter(*cloud_out);
-    cout << cloud_out->points.size() << endl;
 
     pcl::visualization::PCLVisualizer viewer("Title of windows");
     pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> color_w(cloud_in, 255,255,255);
