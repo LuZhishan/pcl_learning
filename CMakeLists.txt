@@ -3,8 +3,10 @@ project(pcl_learning)
 
 set(CMAKE_CXX_STANDARD 14)
 
+find_package(Eigen3 REQUIRED)
 find_package(PCL 1.12 REQUIRED)
 include_directories(
+    ${EIGEN3_INCLUDE_DIR}
     ${PCL_INCLUDE_DIR}
 )
 # add_executable(01_io src/01_io.cpp)
@@ -27,11 +29,17 @@ include_directories(
 # target_link_libraries(10_pfh ${PCL_LIBRARIES})
 # add_executable(31_cluster src/31_cluster.cpp)
 # target_link_libraries(31_cluster ${PCL_LIBRARIES})
-add_executable(32_range_image src/32_range_image.cpp)
-target_link_libraries(32_range_image ${PCL_LIBRARIES})
-# add_executable(test src/test.cpp)
+# add_executable(32_range_image src/32_range_image.cpp)
+# target_link_libraries(32_range_image ${PCL_LIBRARIES})
+# add_executable(test src/test/test.cpp)
 # target_link_libraries(test)
+# add_executable(cal_line src/test/cal_line.cpp)
+# target_link_libraries(cal_line ${PCL_LIBRARIES})
 # add_executable(101_pmf src/extra/101_pmf.cpp)
 # target_link_libraries(101_pmf ${PCL_LIBRARIES})
 # add_executable(102_FrustumCulling src/extra/102_FrustumCulling.cpp)
 # target_link_libraries(102_FrustumCulling ${PCL_LIBRARIES})
+# add_executable(104_pca src/extra/104_pca.cpp)
+# target_link_libraries(104_pca ${PCL_LIBRARIES})
+add_executable(110_cone_cluster src/extra/110_cone_cluster.cpp)
+target_link_libraries(110_cone_cluster ${PCL_LIBRARIES})
